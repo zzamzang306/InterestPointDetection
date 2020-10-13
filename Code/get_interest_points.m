@@ -17,10 +17,33 @@
 %   orientation of each interest point. These are OPTIONAL. By default you
 %   do not need to make scale and orientation invariant local features.
 function [x, y, confidence, scale, orientation] = get_interest_points(image, feature_width)
-
 % Implement the Harris corner detector (See Szeliski 4.1.1) to start with.
 % You can create additional interest point detector functions (e.g. MSER)
 % for extra credit.
+img = im2single(imread(image));     %change image to grayScaled
+%===================Harris Coner Detector=======================
+%1. Compute M matrix for each image window to get their cornerness scores
+% --note: we can find M purely from the per-pixel image derivatives
+%reduced high frequncy 
+mean_mask = [1 1 1; 1 1 1; 1 1 1];
+filtering = imfilter(image, mean_mask);
+
+x_filter = [-1 0 1; -1 0 1; -1 0 1];
+y_filter = [-1 -1 -1; 0 0 0; 1 1 1];
+
+
+x_derivative = imfilter(filtering, x_filter);
+y_derivative = imfilter(filtering, y_filter);
+xy_derivative = sqrt(x_derivative.^2 + y_derivative.^2);
+
+gaussian = fspecial('gaussian', feature_width);
+
+%2. Find points whose surrounding window gave large corner response (f >
+%threshold)
+%3. Take the points of local maxima
+%
+
+
 
 % If you're finding spurious interest point detections near the boundaries,
 % it is safe to simply suppress the gradients / corners near the edges of
