@@ -21,8 +21,8 @@ close all
 % additional images. A single scale pipeline works fine for these two
 % images (and will give you full credit for this project), but you will
 % need local features at multiple scales to handle harder cases.
-image1 = imread('../data/Notre Dame/921919841_a30df938f2_o.jpg');
-image2 = imread('../data/Notre Dame/4191453057_c86028ce1f_o.jpg');
+image1 = imread('image/921919841_a30df938f2_o.jpg');
+image2 = imread('image/4191453057_c86028ce1f_o.jpg');
 
 % You don't have to work with grayscale images. Matching with color
 % information might be helpful.

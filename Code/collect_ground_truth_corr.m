@@ -7,13 +7,13 @@ function collect_ground_truth_corr()
 %between two photographs which can later be used to evaluate matching
 %algorithms.
 
-image1 = imread('../data/Notre Dame/921919841_a30df938f2_o.jpg');
-image2 = imread('../data/Notre Dame/4191453057_c86028ce1f_o.jpg');
+image1 = imread('image/921919841_a30df938f2_o.jpg');
+image2 = imread('image/4191453057_c86028ce1f_o.jpg');
 
 image1 = double(image1)/255;
 image2 = double(image2)/255;
 
-output_file = '../data/Notre Dame/921919841_a30df938f2_o_to_4191453057_c86028ce1f_o.mat';
+output_file = 'image/921919841_a30df938f2_o_to_4191453057_c86028ce1f_o.mat';
 
 %this function checks if some corresponding points are already saved, and
 %if so resumes work from there.
